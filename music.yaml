@@ -1,0 +1,27 @@
+application: music
+Init: True
+Process: True
+Thread: False
+Refresh: True
+screen-size: [240, 320]
+icon-size: [40, 40]
+screen-modes:
+  1: 
+    stop: [1.25, 7.5 ]
+    backward: [2.37, 7.5]
+    play: [3.5, 7.5]
+    forward: [4.62, 7.5]
+    alt: [5.75, 7.5]
+  2:
+    stop: [1.25, 7.5]
+    backward: [2.37, 7.5]
+    pause: [3.5, 7.5]
+    forward: [4.62, 7.5]
+    alt: [5.75, 7.5]
+  3:
+    stop: [1.25, 7.5]
+    volume_down: [2.37, 7.5]
+    repeat: [3.5, 7.5]
+    volume_up: [4.62, 7.5]
+    alt: [5.75, 7.5]
+ 
