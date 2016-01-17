@@ -1,7 +1,6 @@
 #!/usr/bin/python
 import os
 import signal
-import sys
 from time import sleep
 from engine import Menu
 from engine import Utilities
@@ -26,8 +25,7 @@ def Init():
   pygame.mixer.music.set_volume(1)
   
   # Variables relating to the song archive
-  SystemState.MusicState.song_path = "./media/music/"
-  SystemState.MusicState.song_name = None
+  SystemState.MusicState.song_path = "media/music/"
   SystemState.MusicState.song_index = 0
   SystemState.MusicState.song_position = 0
  
@@ -35,8 +33,10 @@ def Init():
   MakeMusicPath()
 
   # More variables related to song archive
-  SystemState.MusicState.song_archive = [os.path.join('media/music/', dir) for dir in os.listdir('media/music/')]
+  SystemState.MusicState.song_archive = sorted([os.path.join('media/music/', dir) for dir in os.listdir('media/music/')])
   SystemState.MusicState.song_count = len(SystemState.MusicState.song_archive)
+  SystemState.MusicState.song_id = SystemState.MusicState.song_archive[SystemState.MusicState.song_index]
+  SystemState.MusicState.song_name = SystemState.MusicState.song_id.split(SystemState.MusicState.song_path)[1]
 
 def MakeMusicPath():
   if os.path.exists(SystemState.MusicState.song_path) == False:
@@ -48,7 +48,8 @@ def Process():
   button = str(SystemState.pressed_button)
   pygame = SystemState.pygame
   screen = SystemState.screen
-  
+  back_pressed = 0
+
   if button == 'play' and len(SystemState.MusicState.song_archive) > 0:
     if SystemState.MusicState.player_state == 'Cannot Play':
       ChangeSong(1)
@@ -102,12 +103,17 @@ def Process():
 
   if button == 'volume_down':
     pygame.mixer.music.set_volume(pygame.mixer.music.get_volume() - 0.1)
-  
-  UpdateMusicText()
+
+  if button == 'go_back':
+    back_pressed = 1
+    Menu.Back()
+
+  if back_pressed == 0:
+    UpdateMusicText()
 
 def LoadSong():
   try:
-    SystemState.pygame.mixer.music.load(SystemState.MusicState.song_archive[SystemState.MusicState.song_index])
+    SystemState.pygame.mixer.music.load(SystemState.MusicState.song_id)
     if SystemState.MusicState.player_state == "Cannot Play":
         pygame.mixer.music.stop()
   except:
@@ -119,9 +125,11 @@ def ChangeSong(direction):
     SystemState.MusicState.song_index = 0
   if SystemState.MusicState.song_index < 0:
     SystemState.MusicState.song_index = SystemState.MusicState.song_count - 1
-  
+  SystemState.MusicState.song_id = SystemState.MusicState.song_archive[SystemState.MusicState.song_index]
+  SystemState.MusicState.song_name = SystemState.MusicState.song_id.split(SystemState.MusicState.song_path)[1]
   SystemState.pygame.mixer.music.stop()
   SystemState.MusicState.song_position = 0
+  LoadSong()
 
 def UpdateMusicText():
   title = SystemState.MusicState.player_state
@@ -136,8 +144,3 @@ def UpdateMusicText():
         text=subtitle,
         text_type = "subtext"
       )
-  
-def Main():
-  SystemState.pressed_button = ''
-  SystemState.pressed_buttons = ''
-  UpdateMusicText()
