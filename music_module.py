@@ -33,10 +33,13 @@ def Init():
   MakeMusicPath()
 
   # More variables related to song archive
-  SystemState.MusicState.song_archive = sorted([os.path.join('media/music/', dir) for dir in os.listdir('media/music/')])
-  SystemState.MusicState.song_count = len(SystemState.MusicState.song_archive)
-  SystemState.MusicState.song_id = SystemState.MusicState.song_archive[SystemState.MusicState.song_index]
-  SystemState.MusicState.song_name = SystemState.MusicState.song_id.split(SystemState.MusicState.song_path)[1]
+  try:
+    SystemState.MusicState.song_archive = sorted([os.path.join('media/music/', dir) for dir in os.listdir('media/music/')])
+    SystemState.MusicState.song_count = len(SystemState.MusicState.song_archive)
+    SystemState.MusicState.song_id = SystemState.MusicState.song_archive[SystemState.MusicState.song_index]
+    SystemState.MusicState.song_name = SystemState.MusicState.song_id.split(SystemState.MusicState.song_path)[1]
+  except:
+    print "No Music Found."
 
 def MakeMusicPath():
   if os.path.exists(SystemState.MusicState.song_path) == False:
