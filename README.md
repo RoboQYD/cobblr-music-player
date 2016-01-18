@@ -18,8 +18,8 @@
  4. Enter the "cobblr/config/" directory.
  5. Open "cobblr.yaml" and add "-music" to the list of applications.
  6. There are two ways to add an app's icon onto the screen.
-    1.Set the application "music" to the startup application.
-    2.Change directory to the "applications/desktop/config/" folder and add it in the list of applications with a                 position.
+    - Set the application "music" to the startup application.
+    - Change directory to the "applications/desktop/config/" folder and add it in the list of applications with a                 position.
  7. Run cobblr.
 
 **Notes**
