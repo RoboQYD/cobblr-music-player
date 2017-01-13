@@ -1,6 +1,6 @@
 An MP3 player application written for the [Cobblr framework](http://github.com/TheQYD/cobblr).
 
-![PiPhone](https://raw.githubusercontent.com/TheQYD/cobblr/master/photos/cobblr_music.jpg)
+![cobblr-music](https://raw.githubusercontent.com/TheQYD/cobblr/master/photos/cobblr_music.jpg)
 
 # Hardware
 Here's a list of hardware necessary to make the phone work:
@@ -27,4 +27,3 @@ Though not required, I've made a polycarbonate and aluminum body for it. The CAD
 
 # License
 PiPhone is available under the MIT license. See the LICENSE file for more info. Make it better!
-
