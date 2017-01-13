@@ -1,27 +1,30 @@
-![alt tag](https://raw.githubusercontent.com/TheQYD/cobblr-music-player/master/music.png)
+An MP3 player application written for the [Cobblr framework](http://github.com/TheQYD/cobblr).
 
-**Description:** This is the music application written for the RPI's cobblr software.
+![PiPhone](https://raw.githubusercontent.com/TheQYD/cobblr/master/photos/cobblr_music.jpg)
 
-**Requirements**
- 1. Raspberry Pi (https://www.adafruit.com/products/2358)
- 2. Adafruit 2.8in PiTFT (https://www.adafruit.com/products/1601)
- 3. Raspberry Pi Camera (https://www.adafruit.com/products/1367)
- 4. USB Microphone Dongle (http://www.amazon.com/Super-Microphone-Adapter-Driver-Notebook/dp/B00M3UJ42A)
- 5. The cobblr software (https://github.com/RoboQYD/cobblr)
- 6. (Optional) Adafruit Powerboost 1000C (https://www.adafruit.com/products/2465)
- 7. (Optional) Adafruit Lipo Battery 500mAh (https://www.adafruit.com/products/1578)
+# Hardware
+Here's a list of hardware necessary to make the phone work:
 
-**Installation**
- 1. Clone the repository.
- 2. Enter the cobblr-music-player directory.
- 3. Run "setup.py install (path)" where (path) is the location of the cobblr folder.
- 4. Enter the "cobblr/config/" directory.
- 5. Open "cobblr.yaml" and add "-music" to the list of applications.
- 6. There are two ways to add an app's icon onto the screen.
-    - Set the application "music" to the startup application.
-    - Change directory to the "applications/desktop/config/" folder and add it in the list of applications with a position.
- 7. Run cobblr.
-
-**Notes**
+ - 1 [Raspberry Pi](https://www.adafruit.com/products/2358)
+ - 1 [Adafruit 2.8in PiTFT](https://www.adafruit.com/products/1601)
+ - 1 [(Optional) Adafruit Powerboost 1000C](https://www.adafruit.com/products/2465)
+ - 1 [(Optional) Adafruit Lipo Battery 2500mAh](https://www.adafruit.com/products/328)
  
-  I plan to write a script that automatically edits and adds new applications onto the screen. For now, the user is going to   have to edit and add the app icon onto the screen.
+This application works great with cobblr-phone(http://github.com/TheQYD/cobblr-phone). If you'd like to make a cellphone that uses Cobblr, you can follow the directions [here](https://learn.adafruit.com/piphone-a-raspberry-pi-based-cellphone/pi-setup?view=all) to wire it up.
+# How to Install
+
+Follow the directions to install the [Cobblr framework](http://github.com/TheQYD/cobblr). The PiTFT should be configured in portrait mode (no rotation). Once that's finished, and the framework is installed, execute this command:
+```
+sudo cobblr install cobblr-music
+```
+
+# More
+
+Though not required, I've made a polycarbonate and aluminum body for it. The CADs are avaliable [here](https://github.com/TheQYD/CAD/tree/master/cobblr-phone). Other applications were made to work with the cobblr-music:
+
+- [cobblr-phone](http://gihub.com/TheQYD/cobblr-phone)
+- [cobblr-calculator](http://gihub.com/TheQYD/cobblr-calculator)
+
+# License
+PiPhone is available under the MIT license. See the LICENSE file for more info. Make it better!
+
